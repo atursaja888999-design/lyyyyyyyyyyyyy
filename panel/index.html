@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>GameStore Panel — Login</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="login-layout">
+    <section class="intro">
+      <a class="brand" href="../storefront/">
+        <span class="brand-mark">G</span>
+        <span>GAMESTORE PANEL</span>
+      </a>
+
+      <div>
+        <p class="eyebrow">ADMINISTRASI TOKO</p>
+        <h1>Kelola seluruh pesanan dari satu panel.</h1>
+        <p>
+          Panel ini nantinya digunakan untuk melihat order masuk,
+          mengubah transaksi, memverifikasi pembayaran, memantau laba,
+          dan memperbarui status pesanan pelanggan.
+        </p>
+      </div>
+
+      <ul>
+        <li>Order masuk otomatis dari website</li>
+        <li>Edit transaksi dengan riwayat perubahan</li>
+        <li>Kelola harga, promo, dan produk</li>
+        <li>Verifikasi pembayaran dan proses order</li>
+      </ul>
+    </section>
+
+    <section class="login-card">
+      <p class="eyebrow">LOGIN ADMIN</p>
+      <h2>Masuk ke panel</h2>
+      <p class="muted">Gunakan akun admin setelah sistem autentikasi dibuat.</p>
+
+      <form id="login-form">
+        <label for="username">Email atau username</label>
+        <input id="username" type="text" placeholder="admin" required />
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="••••••••" required />
+
+        <button type="submit">Masuk ke Panel</button>
+      </form>
+
+      <p id="login-message" class="message" role="status"></p>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
