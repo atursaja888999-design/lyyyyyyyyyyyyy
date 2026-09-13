@@ -23,3 +23,7 @@ database/    Schema dan migration Cloudflare D1
 - [ ] Pembayaran manual
 - [ ] Payment gateway dan webhook
 - [ ] Integrasi supplier/API
+
+
+
+Deploy storefront update
