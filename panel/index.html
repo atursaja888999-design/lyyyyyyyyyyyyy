@@ -4,53 +4,370 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>GameStore Panel — Login</title>
+  <meta
+    name="description"
+    content="Panel admin untuk mengelola transaksi game top up."
+  />
+  <title>GameStore Panel — Dashboard Admin</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main class="login-layout">
-    <section class="intro">
-      <a class="brand" href="../storefront/">
+  <section id="login-view" class="login-view">
+    <div class="login-card">
+      <a class="brand" href="#" aria-label="GameStore Panel">
         <span class="brand-mark">G</span>
         <span>GAMESTORE PANEL</span>
       </a>
 
-      <div>
-        <p class="eyebrow">ADMINISTRASI TOKO</p>
-        <h1>Kelola seluruh pesanan dari satu panel.</h1>
-        <p>
-          Panel ini nantinya digunakan untuk melihat order masuk,
-          mengubah transaksi, memverifikasi pembayaran, memantau laba,
-          dan memperbarui status pesanan pelanggan.
-        </p>
-      </div>
-
-      <ul>
-        <li>Order masuk otomatis dari website</li>
-        <li>Edit transaksi dengan riwayat perubahan</li>
-        <li>Kelola harga, promo, dan produk</li>
-        <li>Verifikasi pembayaran dan proses order</li>
-      </ul>
-    </section>
-
-    <section class="login-card">
-      <p class="eyebrow">LOGIN ADMIN</p>
-      <h2>Masuk ke panel</h2>
-      <p class="muted">Gunakan akun admin setelah sistem autentikasi dibuat.</p>
+      <p class="eyebrow">AKSES ADMIN</p>
+      <h1>Masuk ke panel transaksi</h1>
+      <p class="muted">
+        Masukkan token admin yang Anda simpan pada Cloudflare Worker.
+        Token tidak disimpan di GitHub.
+      </p>
 
       <form id="login-form">
-        <label for="username">Email atau username</label>
-        <input id="username" type="text" placeholder="admin" required />
+        <label for="admin-token">Admin API token</label>
+        <input
+          id="admin-token"
+          name="adminToken"
+          type="password"
+          placeholder="gs_admin_..."
+          autocomplete="off"
+          required
+        />
 
-        <label for="password">Password</label>
-        <input id="password" type="password" placeholder="••••••••" required />
+        <label class="checkbox-label">
+          <input id="remember-token" type="checkbox" />
+          <span>Simpan token di browser ini untuk sementara</span>
+        </label>
 
-        <button type="submit">Masuk ke Panel</button>
+        <button type="submit" class="button button-primary">
+          Masuk ke Dashboard
+        </button>
       </form>
 
-      <p id="login-message" class="message" role="status"></p>
+      <p id="login-message" class="form-message" role="status"></p>
+    </div>
+  </section>
+
+  <section id="app-view" class="app-view is-hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#">
+        <span class="brand-mark">G</span>
+        <span>GAMESTORE</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navigasi panel">
+        <button class="nav-item is-active" data-section="dashboard">
+          <span>▦</span> Dashboard
+        </button>
+        <button class="nav-item" data-section="orders">
+          <span>☷</span> Semua Order
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <p class="admin-label">ADMIN PANEL</p>
+        <button id="logout-button" class="logout-button">
+          Keluar
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">DASHBOARD ADMIN</p>
+          <h1>Kelola transaksi toko</h1>
+        </div>
+
+        <button id="refresh-button" class="button button-outline">
+          ↻ Refresh Data
+        </button>
+      </header>
+
+      <section id="dashboard-section" class="content-section">
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span>Total Order</span>
+            <strong id="stat-total-orders">0</strong>
+            <small>Order yang terbaca</small>
+          </article>
+
+          <article class="stat-card stat-yellow">
+            <span>Belum Dibayar</span>
+            <strong id="stat-unpaid">0</strong>
+            <small>Menunggu pembayaran</small>
+          </article>
+
+          <article class="stat-card stat-blue">
+            <span>Dalam Antrean</span>
+            <strong id="stat-queued">0</strong>
+            <small>Siap diproses</small>
+          </article>
+
+          <article class="stat-card stat-green">
+            <span>Berhasil</span>
+            <strong id="stat-success">0</strong>
+            <small>Order selesai</small>
+          </article>
+        </div>
+
+        <section class="panel-card">
+          <div class="section-header">
+            <div>
+              <h2>Order terbaru</h2>
+              <p>Pesanan terbaru dari website pelanggan.</p>
+            </div>
+            <button class="text-button" data-go-orders>Lihat semua order →</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Invoice</th>
+                  <th>Pelanggan</th>
+                  <th>Produk</th>
+                  <th>Total</th>
+                  <th>Pembayaran</th>
+                  <th>Proses</th>
+                  <th>Waktu</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="recent-orders-body"></tbody>
+            </table>
+          </div>
+
+          <p id="recent-empty" class="empty-message is-hidden">
+            Belum ada order.
+          </p>
+        </section>
+      </section>
+
+      <section id="orders-section" class="content-section is-hidden">
+        <div class="section-header page-heading">
+          <div>
+            <p class="eyebrow">MANAJEMEN ORDER</p>
+            <h2>Semua transaksi</h2>
+          </div>
+        </div>
+
+        <section class="panel-card">
+          <div class="filters">
+            <label>
+              Cari invoice, nama, nomor WhatsApp, atau User ID
+              <input
+                id="search-input"
+                type="search"
+                placeholder="Contoh: GMS-2026 atau 0812..."
+              />
+            </label>
+
+            <label>
+              Status pembayaran
+              <select id="payment-filter">
+                <option value="">Semua status</option>
+                <option value="unpaid">Belum dibayar</option>
+                <option value="waiting_verification">Menunggu verifikasi</option>
+                <option value="paid">Sudah dibayar</option>
+                <option value="rejected">Ditolak</option>
+                <option value="expired">Kedaluwarsa</option>
+                <option value="refunded">Refund</option>
+              </select>
+            </label>
+
+            <label>
+              Status proses
+              <select id="fulfillment-filter">
+                <option value="">Semua status</option>
+                <option value="queued">Antrean</option>
+                <option value="processing">Diproses</option>
+                <option value="need_action">Butuh tindakan pelanggan</option>
+                <option value="success">Berhasil</option>
+                <option value="failed">Gagal</option>
+                <option value="cancelled">Dibatalkan</option>
+                <option value="refunded">Refund</option>
+              </select>
+            </label>
+
+            <button id="filter-button" class="button button-primary">
+              Terapkan Filter
+            </button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Invoice</th>
+                  <th>Pelanggan</th>
+                  <th>Produk</th>
+                  <th>Total</th>
+                  <th>Pembayaran</th>
+                  <th>Proses</th>
+                  <th>Waktu</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="orders-body"></tbody>
+            </table>
+          </div>
+
+          <p id="orders-empty" class="empty-message is-hidden">
+            Tidak ada order yang sesuai.
+          </p>
+        </section>
+      </section>
+    </main>
+  </section>
+
+  <div id="order-modal" class="modal is-hidden" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <section class="modal-content">
+      <header class="modal-header">
+        <div>
+          <p class="eyebrow">DETAIL TRANSAKSI</p>
+          <h2 id="modal-order-code">-</h2>
+        </div>
+        <button class="close-button" data-close-modal aria-label="Tutup">×</button>
+      </header>
+
+      <div id="modal-loading" class="modal-loading">Memuat detail order...</div>
+
+      <form id="order-form" class="order-form is-hidden">
+        <div class="detail-summary">
+          <div>
+            <span>Produk</span>
+            <strong id="detail-product-name">-</strong>
+          </div>
+          <div>
+            <span>Game</span>
+            <strong id="detail-game-name">-</strong>
+          </div>
+          <div>
+            <span>Harga modal</span>
+            <strong id="detail-base-cost">Rp0</strong>
+          </div>
+          <div>
+            <span>Laba estimasi</span>
+            <strong id="detail-profit">Rp0</strong>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            Nama pelanggan
+            <input id="edit-customer-name" type="text" required />
+          </label>
+
+          <label>
+            Nomor WhatsApp
+            <input id="edit-customer-phone" type="text" required />
+          </label>
+
+          <label>
+            Email pelanggan
+            <input id="edit-customer-email" type="email" />
+          </label>
+
+          <label>
+            User ID / Nickname
+            <input id="edit-game-user-id" type="text" required />
+          </label>
+
+          <label>
+            Zone / Server
+            <input id="edit-game-zone" type="text" />
+          </label>
+
+          <label>
+            Referensi supplier
+            <input id="edit-supplier-reference" type="text" />
+          </label>
+
+          <label>
+            Harga jual
+            <input id="edit-selling-price" type="number" min="0" required />
+          </label>
+
+          <label>
+            Diskon
+            <input id="edit-discount-amount" type="number" min="0" required />
+          </label>
+
+          <label>
+            Fee pembayaran
+            <input id="edit-payment-fee" type="number" min="0" required />
+          </label>
+
+          <label>
+            Status pembayaran
+            <select id="edit-payment-status" required>
+              <option value="unpaid">Belum dibayar</option>
+              <option value="waiting_verification">Menunggu verifikasi</option>
+              <option value="paid">Sudah dibayar</option>
+              <option value="rejected">Ditolak</option>
+              <option value="expired">Kedaluwarsa</option>
+              <option value="refunded">Refund</option>
+            </select>
+          </label>
+
+          <label>
+            Status proses
+            <select id="edit-fulfillment-status" required>
+              <option value="queued">Antrean</option>
+              <option value="processing">Diproses</option>
+              <option value="need_action">Butuh tindakan pelanggan</option>
+              <option value="success">Berhasil</option>
+              <option value="failed">Gagal</option>
+              <option value="cancelled">Dibatalkan</option>
+              <option value="refunded">Refund</option>
+            </select>
+          </label>
+
+          <label>
+            Total pembayaran
+            <input id="detail-total-amount" type="text" readonly />
+          </label>
+        </div>
+
+        <label>
+          Catatan pelanggan
+          <textarea id="edit-customer-note" rows="3"></textarea>
+        </label>
+
+        <label>
+          Catatan internal admin
+          <textarea id="edit-internal-note" rows="4"></textarea>
+        </label>
+
+        <label>
+          Alasan perubahan
+          <textarea
+            id="edit-reason"
+            rows="2"
+            placeholder="Contoh: Pembayaran sudah diverifikasi melalui mutasi rekening."
+          ></textarea>
+        </label>
+
+        <div class="form-actions">
+          <p id="order-form-message" class="form-message"></p>
+          <button type="submit" class="button button-primary">
+            Simpan Perubahan
+          </button>
+        </div>
+      </form>
+
+      <section id="order-timeline" class="timeline-section is-hidden">
+        <h3>Riwayat perubahan</h3>
+        <div id="timeline-list" class="timeline-list"></div>
+      </section>
     </section>
-  </main>
+  </div>
 
   <script src="./app.js"></script>
 </body>
