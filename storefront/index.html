@@ -3,185 +3,173 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Top up game dan voucher digital dengan proses cepat, harga kompetitif, dan transaksi tercatat." />
-  <title>GAMESTORE — Top Up Game & Voucher</title>
+  <meta name="theme-color" content="#060816" />
+  <meta name="description" content="Top up game dan voucher digital cepat, aman, dan modern." />
+  <title>NEXORA — Top Up Game Futuristik</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="./">
-      <span class="brand-mark">G</span>
-      <span>GAMESTORE</span>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="app-header">
+    <a class="brand" href="#home" aria-label="NEXORA Home">
+      <span class="brand-orb">N</span>
+      <span class="brand-copy"><b>NEXORA</b><small>GAME VAULT</small></span>
     </a>
 
-    <nav class="navigation" aria-label="Navigasi utama">
-      <a href="#game">Top Up Game</a>
-      <a href="#voucher">Voucher</a>
-      <a href="#cara-order">Cara Order</a>
-      <a href="#faq">FAQ</a>
+    <nav class="desktop-nav" aria-label="Navigasi utama">
+      <a class="active" href="#home">Beranda</a>
+      <a href="#games">Game</a>
+      <a href="#how-it-works">Cara Order</a>
     </nav>
 
-    <a class="button button-outline" href="#game">Top Up Sekarang</a>
+    <div class="header-actions">
+      <button class="icon-button" type="button" data-open-search aria-label="Cari game">⌕</button>
+      <button class="header-order-button" type="button" data-open-track>CEK ORDER</button>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="home" class="app-shell">
+    <section class="hero-panel">
       <div class="hero-content">
-        <p class="eyebrow">TOP UP GAME CEPAT & AMAN</p>
-        <h1>Voucher game favoritmu, langsung masuk tanpa ribet.</h1>
-        <p class="hero-description">
-          Pilih game, pilih nominal, masukkan data akun, lalu buat pesanan.
-          Semua transaksi memiliki nomor invoice yang dapat dilacak.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="#game">Pilih Game</a>
-          <a class="button button-secondary" href="#cara-order">Lihat Cara Order</a>
+        <p class="kicker"><span class="pulse-dot"></span> LAYANAN DIGITAL 24/7</p>
+        <h1>Level up tanpa <span>menunggu.</span></h1>
+        <p class="hero-text">Top up game, voucher, dan item digital dengan order yang tercatat otomatis. Pilih game, isi ID, lalu lanjutkan pesanan.</p>
+        <div class="hero-buttons">
+          <a href="#games" class="primary-button">Mulai Top Up <span>→</span></a>
+          <button type="button" class="ghost-button" data-open-track>Lacak Pesanan</button>
         </div>
-
-        <div class="hero-stats" aria-label="Keunggulan layanan">
-          <div><strong>24/7</strong><span>Order online</span></div>
-          <div><strong>Instan</strong><span>Proses cepat</span></div>
-          <div><strong>Aman</strong><span>Transaksi tercatat</span></div>
+        <div class="trust-row">
+          <span>⚡ Proses cepat</span>
+          <span>◈ Invoice otomatis</span>
+          <span>✦ Data terenkripsi</span>
         </div>
       </div>
-
-      <div class="hero-card">
-        <div class="glow glow-one"></div>
-        <div class="glow glow-two"></div>
-
-        <p class="card-label">CEK STATUS PESANAN</p>
-        <h2>Sudah melakukan top up?</h2>
-        <p>Masukkan nomor invoice dan WhatsApp yang digunakan saat order.</p>
-
-        <form id="track-form" class="track-form">
-          <label for="order-code">Nomor invoice</label>
-          <input id="order-code" name="orderCode" type="text" placeholder="Contoh: GMS-20260913-6K8R2" autocomplete="off" required />
-
-          <label for="track-phone">Nomor WhatsApp</label>
-          <input id="track-phone" name="phone" type="tel" placeholder="08xxxxxxxxxx" autocomplete="tel" required />
-
-          <button type="submit" class="button button-primary">Cek Pesanan</button>
-        </form>
-
-        <div id="track-result" class="track-result is-hidden"></div>
-        <p id="track-message" class="form-message" role="status"></p>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="holo-ring ring-a"></div>
+        <div class="holo-ring ring-b"></div>
+        <div class="holo-core"><span>NX</span><small>TOP UP</small></div>
+        <div class="floating-card card-top"><small>STATUS</small><b>ONLINE</b><i></i></div>
+        <div class="floating-card card-bottom"><small>ORDER FLOW</small><b>REALTIME</b><i></i></div>
       </div>
     </section>
 
-    <section id="game" class="section">
-      <div class="section-heading">
+    <section class="search-section" aria-label="Cari produk">
+      <label class="search-box">
+        <span>⌕</span>
+        <input id="game-search" type="search" placeholder="Cari game atau voucher favoritmu..." autocomplete="off" />
+        <kbd>ESC</kbd>
+      </label>
+      <button class="track-chip" type="button" data-open-track>▣ Cek Invoice</button>
+    </section>
+
+    <section id="games" class="catalog-section">
+      <div class="section-title-row">
         <div>
-          <p class="eyebrow">PILIH PRODUK</p>
-          <h2>Top up game populer</h2>
+          <p class="kicker">KATALOG DIGITAL</p>
+          <h2>Game populer</h2>
         </div>
-        <span id="catalog-status" class="catalog-status">Memuat katalog...</span>
+        <span id="catalog-status" class="status-pill">Sinkronisasi katalog...</span>
       </div>
 
       <div id="game-grid" class="game-grid">
-        <article class="loading-card">Memuat produk dari server...</article>
+        <article class="game-skeleton"><span></span><b>Memuat game...</b></article>
+        <article class="game-skeleton"><span></span><b>Memuat game...</b></article>
+        <article class="game-skeleton"><span></span><b>Memuat game...</b></article>
+        <article class="game-skeleton"><span></span><b>Memuat game...</b></article>
       </div>
     </section>
 
-    <section id="voucher" class="section section-dark">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">VOUCHER DIGITAL</p>
-          <h2>Belanja lebih mudah</h2>
-        </div>
-      </div>
-
-      <div class="feature-grid">
-        <article class="feature-card"><span>🎮</span><h3>Produk game populer</h3><p>Pilih nominal top up sesuai game yang tersedia pada katalog.</p></article>
-        <article class="feature-card"><span>⚡</span><h3>Order tercatat</h3><p>Setiap transaksi memperoleh invoice unik untuk memantau progres order.</p></article>
-        <article class="feature-card"><span>💬</span><h3>Bantuan customer service</h3><p>Gunakan nomor invoice saat menghubungi customer service terkait transaksi.</p></article>
-      </div>
+    <section class="value-grid">
+      <article><span class="value-icon">01</span><h3>Harga transparan</h3><p>Nominal dan total pesanan terlihat sebelum Anda membuat order.</p></article>
+      <article><span class="value-icon">02</span><h3>Invoice unik</h3><p>Setiap order memperoleh nomor invoice untuk cek status mandiri.</p></article>
+      <article><span class="value-icon">03</span><h3>Panel realtime</h3><p>Order langsung masuk ke sistem admin untuk diproses.</p></article>
     </section>
 
-    <section id="cara-order" class="section">
-      <div class="section-heading centered">
-        <p class="eyebrow">CARA ORDER</p>
-        <h2>Top up dalam empat langkah</h2>
+    <section id="how-it-works" class="process-section">
+      <div class="section-title-row">
+        <div><p class="kicker">CARA ORDER</p><h2>Tiga langkah sederhana</h2></div>
       </div>
-
-      <div class="steps">
-        <article><span>01</span><h3>Pilih game</h3><p>Pilih game atau voucher yang ingin Anda beli.</p></article>
-        <article><span>02</span><h3>Pilih nominal</h3><p>Pilih paket top up yang sesuai dengan kebutuhan Anda.</p></article>
-        <article><span>03</span><h3>Isi data akun</h3><p>Masukkan User ID dan Zone/Server bila diperlukan.</p></article>
-        <article><span>04</span><h3>Buat pesanan</h3><p>Simpan invoice Anda untuk pembayaran dan cek status order.</p></article>
+      <div class="process-steps">
+        <article><span>01</span><h3>Pilih game</h3><p>Temukan game dan pilih nominal yang Anda butuhkan.</p></article>
+        <article><span>02</span><h3>Masukkan data</h3><p>Isi User ID, data kontak, dan catatan bila diperlukan.</p></article>
+        <article><span>03</span><h3>Simpan invoice</h3><p>Gunakan invoice untuk memantau status pesanan Anda.</p></article>
       </div>
-    </section>
-
-    <section id="faq" class="section faq-section">
-      <div class="section-heading">
-        <div><p class="eyebrow">FAQ</p><h2>Pertanyaan umum</h2></div>
-      </div>
-
-      <details><summary>Apakah saya harus login untuk melakukan top up?</summary><p>Tidak. Cukup pilih produk, isi data akun, nama, dan nomor WhatsApp.</p></details>
-      <details><summary>Bagaimana cara mengecek status pesanan?</summary><p>Masukkan nomor invoice dan nomor WhatsApp pada form cek pesanan di halaman ini.</p></details>
-      <details><summary>Kapan order diproses?</summary><p>Order diproses setelah pembayaran diverifikasi oleh admin atau sistem pembayaran otomatis.</p></details>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div>
-      <a class="brand" href="./"><span class="brand-mark">G</span><span>GAMESTORE</span></a>
-      <p>Top up game dan voucher digital dengan proses yang mudah dan tercatat.</p>
-    </div>
-    <p>© <span id="year"></span> GAMESTORE. Semua hak dilindungi.</p>
+  <footer class="app-footer">
+    <a class="brand" href="#home"><span class="brand-orb">N</span><span class="brand-copy"><b>NEXORA</b><small>GAME VAULT</small></span></a>
+    <p>© <span id="year"></span> NEXORA. Digital top up portal.</p>
   </footer>
 
-  <div id="checkout-modal" class="modal is-hidden" role="dialog" aria-modal="true">
-    <div class="modal-backdrop" data-close-checkout></div>
+  <nav class="mobile-nav" aria-label="Navigasi mobile">
+    <a class="active" href="#home"><span>⌂</span>Beranda</a>
+    <a href="#games"><span>◈</span>Game</a>
+    <button type="button" data-open-track><span>▣</span>Pesanan</button>
+    <a href="#how-it-works"><span>?</span>Bantuan</a>
+  </nav>
 
-    <section class="checkout-modal-content">
-      <header class="checkout-header">
-        <div><p class="eyebrow">BUAT PESANAN</p><h2 id="checkout-game-title">Pilih produk</h2></div>
-        <button class="close-button" data-close-checkout aria-label="Tutup">×</button>
+  <div id="checkout-modal" class="overlay is-hidden" role="dialog" aria-modal="true" aria-label="Checkout top up">
+    <div class="overlay-backdrop" data-close-checkout></div>
+    <section class="checkout-sheet">
+      <div class="sheet-handle"></div>
+      <header class="sheet-header">
+        <div><p class="kicker">TRANSAKSI BARU</p><h2 id="checkout-game-title">Pilih produk</h2></div>
+        <button class="close-button" type="button" data-close-checkout aria-label="Tutup">×</button>
       </header>
 
       <div id="checkout-step-product">
-        <p class="checkout-help">Pilih nominal/top up yang ingin dibeli.</p>
-        <div id="checkout-product-list" class="checkout-product-list"></div>
+        <p class="sheet-description">Pilih nominal yang ingin Anda beli.</p>
+        <div id="checkout-product-list" class="product-options"></div>
       </div>
 
       <form id="checkout-form" class="checkout-form is-hidden">
-        <div class="selected-product">
-          <span>Produk terpilih</span>
-          <strong id="selected-product-name">-</strong>
+        <div class="selected-product-card">
+          <div><span>Produk dipilih</span><strong id="selected-product-name">-</strong></div>
           <b id="selected-product-price">Rp0</b>
-          <button id="change-product-button" type="button">Ganti produk</button>
+          <button id="change-product-button" type="button">Ubah nominal</button>
         </div>
-
-        <div id="dynamic-account-fields" class="dynamic-fields"></div>
-
-        <label>Nama pelanggan<input id="customer-name" type="text" maxlength="100" required /></label>
-        <label>Nomor WhatsApp<input id="customer-phone" type="tel" inputmode="numeric" placeholder="08xxxxxxxxxx" maxlength="16" required /></label>
-        <label>Email (opsional)<input id="customer-email" type="email" maxlength="150" /></label>
-        <label>Catatan untuk admin (opsional)<textarea id="customer-note" rows="3" maxlength="1000"></textarea></label>
-
-        <label>
-          Metode pembayaran
-          <select id="payment-method" required>
-            <option value="manual_transfer">Transfer / QRIS Manual</option>
-          </select>
-        </label>
-
-        <div class="checkout-total"><span>Total pembayaran</span><strong id="checkout-total">Rp0</strong></div>
-        <p id="checkout-message" class="form-message"></p>
-        <button id="create-order-button" type="submit" class="button button-primary">Buat Pesanan</button>
+        <div id="dynamic-account-fields" class="field-stack"></div>
+        <div class="field-stack">
+          <label>Nama pelanggan<input id="customer-name" type="text" maxlength="100" required /></label>
+          <label>Nomor WhatsApp<input id="customer-phone" type="tel" inputmode="numeric" placeholder="08xxxxxxxxxx" maxlength="16" required /></label>
+          <label>Email <em>opsional</em><input id="customer-email" type="email" maxlength="150" /></label>
+          <label>Catatan untuk admin <em>opsional</em><textarea id="customer-note" rows="3" maxlength="1000" placeholder="Contoh: pastikan ID sudah benar"></textarea></label>
+          <label>Metode pembayaran<select id="payment-method" required><option value="manual_transfer">Transfer / QRIS Manual</option></select></label>
+        </div>
+        <div class="order-total"><span>Total pembayaran</span><strong id="checkout-total">Rp0</strong></div>
+        <p id="checkout-message" class="form-message" role="status"></p>
+        <button id="create-order-button" type="submit" class="primary-button full-width">Buat Pesanan <span>→</span></button>
       </form>
 
-      <section id="checkout-success" class="checkout-success is-hidden">
-        <div class="success-icon">✓</div>
-        <p class="eyebrow">ORDER BERHASIL DIBUAT</p>
-        <h2>Simpan nomor invoice Anda</h2>
+      <section id="checkout-success" class="success-view is-hidden">
+        <div class="success-mark">✓</div>
+        <p class="kicker">ORDER TERCIPTA</p>
+        <h2>Invoice berhasil dibuat</h2>
         <p id="success-product-text"></p>
-        <div class="invoice-box"><span>Nomor invoice</span><strong id="success-order-code">-</strong></div>
-        <div class="success-total"><span>Total pembayaran</span><strong id="success-total-amount">Rp0</strong></div>
-        <p class="payment-info">Pesanan menunggu pembayaran. Instruksi pembayaran manual akan ditampilkan setelah admin mengonfigurasi QRIS atau rekening tujuan.</p>
-        <button id="close-success-button" class="button button-primary">Selesai</button>
+        <div class="invoice-card"><span>NOMOR INVOICE</span><strong id="success-order-code">-</strong></div>
+        <div class="order-total"><span>Total pembayaran</span><strong id="success-total-amount">Rp0</strong></div>
+        <p class="success-note">Simpan invoice ini. Gunakan menu Pesanan untuk mengecek progres transaksi.</p>
+        <button id="close-success-button" type="button" class="primary-button full-width">Selesai</button>
       </section>
+    </section>
+  </div>
+
+  <div id="track-modal" class="overlay is-hidden" role="dialog" aria-modal="true" aria-label="Lacak pesanan">
+    <div class="overlay-backdrop" data-close-track></div>
+    <section class="track-sheet">
+      <div class="sheet-handle"></div>
+      <header class="sheet-header"><div><p class="kicker">LACAK TRANSAKSI</p><h2>Cek status pesanan</h2></div><button class="close-button" type="button" data-close-track aria-label="Tutup">×</button></header>
+      <p class="sheet-description">Masukkan nomor invoice dan WhatsApp yang digunakan saat membuat order.</p>
+      <form id="track-form" class="field-stack">
+        <label>Nomor invoice<input id="order-code" name="orderCode" type="text" placeholder="GMS-20260913-XXXXXX" required /></label>
+        <label>Nomor WhatsApp<input id="track-phone" name="phone" type="tel" inputmode="numeric" placeholder="08xxxxxxxxxx" required /></label>
+        <button type="submit" class="primary-button full-width">Cek Pesanan <span>→</span></button>
+      </form>
+      <p id="track-message" class="form-message" role="status"></p>
+      <div id="track-result" class="track-result is-hidden"></div>
     </section>
   </div>
 
