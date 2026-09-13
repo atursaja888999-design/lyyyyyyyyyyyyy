@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Top up game dan voucher digital dengan proses cepat, harga kompetitif, dan pembayaran aman."
+  />
+  <title>Game Store — Top Up Game & Voucher</title>
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">
+      <span class="brand-mark">G</span>
+      <span>GAMESTORE</span>
+    </a>
+
+    <nav class="navigation" aria-label="Navigasi utama">
+      <a href="#game">Top Up Game</a>
+      <a href="#voucher">Voucher</a>
+      <a href="#cara-order">Cara Order</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <a class="button button-outline" href="#game">Top Up Sekarang</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">TOP UP GAME CEPAT & AMAN</p>
+        <h1>Voucher game favoritmu, langsung masuk tanpa ribet.</h1>
+        <p class="hero-description">
+          Pilih game, masukkan ID akun, pilih nominal, lalu selesaikan pembayaran.
+          Status pesanan dapat dipantau kapan saja.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#game">Pilih Game</a>
+          <a class="button button-secondary" href="#cara-order">Lihat Cara Order</a>
+        </div>
+
+        <div class="hero-stats" aria-label="Keunggulan layanan">
+          <div>
+            <strong>24/7</strong>
+            <span>Order online</span>
+          </div>
+          <div>
+            <strong>Instan</strong>
+            <span>Proses cepat</span>
+          </div>
+          <div>
+            <strong>Aman</strong>
+            <span>Transaksi tercatat</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+
+        <p class="card-label">CEK STATUS PESANAN</p>
+        <h2>Sudah melakukan top up?</h2>
+        <p>Masukkan nomor invoice untuk melihat progres pesanan Anda.</p>
+
+        <form id="track-form" class="track-form">
+          <label for="order-code">Nomor invoice</label>
+          <input
+            id="order-code"
+            name="orderCode"
+            type="text"
+            placeholder="Contoh: GMS-20260913-6K8R2"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="button button-primary">Cek Pesanan</button>
+        </form>
+
+        <p id="track-message" class="form-message" role="status"></p>
+      </div>
+    </section>
+
+    <section id="game" class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PILIH PRODUK</p>
+          <h2>Top up game populer</h2>
+        </div>
+        <a href="#voucher">Lihat semua produk →</a>
+      </div>
+
+      <div class="game-grid">
+        <article class="game-card">
+          <div class="game-icon game-icon-blue">ML</div>
+          <div>
+            <h3>Mobile Legends</h3>
+            <p>Diamond & membership</p>
+          </div>
+          <button class="select-game" data-game="Mobile Legends">Pilih</button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon game-icon-orange">FF</div>
+          <div>
+            <h3>Free Fire</h3>
+            <p>Diamond & membership</p>
+          </div>
+          <button class="select-game" data-game="Free Fire">Pilih</button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon game-icon-green">PB</div>
+          <div>
+            <h3>Point Blank</h3>
+            <p>Cash & voucher</p>
+          </div>
+          <button class="select-game" data-game="Point Blank">Pilih</button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon game-icon-red">VP</div>
+          <div>
+            <h3>Valorant</h3>
+            <p>Valorant Points</p>
+          </div>
+          <button class="select-game" data-game="Valorant">Pilih</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="voucher" class="section section-dark">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">VOUCHER DIGITAL</p>
+          <h2>Produk lainnya</h2>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span>🎮</span>
+          <h3>Voucher Game</h3>
+          <p>Steam Wallet, Google Play, PlayStation, dan voucher digital lainnya.</p>
+        </article>
+
+        <article class="feature-card">
+          <span>⚡</span>
+          <h3>Proses Terpantau</h3>
+          <p>Setiap transaksi memperoleh nomor invoice untuk pelacakan status.</p>
+        </article>
+
+        <article class="feature-card">
+          <span>💬</span>
+          <h3>Bantuan CS</h3>
+          <p>Butuh bantuan transaksi? Hubungi customer service melalui kanal resmi.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="cara-order" class="section">
+      <div class="section-heading centered">
+        <p class="eyebrow">CARA ORDER</p>
+        <h2>Top up dalam empat langkah</h2>
+      </div>
+
+      <div class="steps">
+        <article>
+          <span>01</span>
+          <h3>Pilih game</h3>
+          <p>Pilih game atau voucher digital yang ingin dibeli.</p>
+        </article>
+
+        <article>
+          <span>02</span>
+          <h3>Isi data akun</h3>
+          <p>Masukkan User ID dan server/zone sesuai kebutuhan produk.</p>
+        </article>
+
+        <article>
+          <span>03</span>
+          <h3>Bayar pesanan</h3>
+          <p>Pilih metode pembayaran dan selesaikan pembayaran sesuai instruksi.</p>
+        </article>
+
+        <article>
+          <span>04</span>
+          <h3>Pesanan diproses</h3>
+          <p>Pantau status transaksi memakai nomor invoice Anda.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" class="section faq-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FAQ</p>
+          <h2>Pertanyaan umum</h2>
+        </div>
+      </div>
+
+      <details>
+        <summary>Apakah saya harus login untuk melakukan top up?</summary>
+        <p>Tidak untuk versi awal. Anda cukup memasukkan data akun game dan nomor WhatsApp saat checkout.</p>
+      </details>
+
+      <details>
+        <summary>Bagaimana cara mengecek status pesanan?</summary>
+        <p>Gunakan nomor invoice yang diberikan setelah checkout pada fitur cek pesanan di halaman ini.</p>
+      </details>
+
+      <details>
+        <summary>Apakah transaksi langsung masuk ke admin?</summary>
+        <p>Ya. Saat sistem order sudah aktif, setiap order akan otomatis masuk ke panel admin untuk diproses.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a class="brand" href="./">
+        <span class="brand-mark">G</span>
+        <span>GAMESTORE</span>
+      </a>
+      <p>Top up game dan voucher digital dengan proses yang mudah dan tercatat.</p>
+    </div>
+
+    <p>© <span id="year"></span> GAMESTORE. Semua hak dilindungi.</p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
