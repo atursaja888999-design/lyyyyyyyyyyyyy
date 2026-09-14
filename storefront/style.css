@@ -329,14 +329,14 @@ a { color: inherit; text-decoration: none; }
 }
 
 
-/* Logo custom pada visual hero tengah */
+/* Logo asli DAULAY STORE di tengah hero */
 .hero-orbit .core-card {
   display: grid !important;
   place-items: center !important;
   overflow: hidden !important;
 }
 
-.hero-orbit .core-card img {
+.hero-orbit .core-card .store-logo {
   display: block !important;
   width: 78% !important;
   height: 78% !important;
