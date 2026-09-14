@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#07091a" />
-  <meta name="description" content="Top up game modern, cepat, aman, dan tercatat otomatis." />
+  <meta
+    name="description"
+    content="Top up game modern, cepat, aman, dan tercatat otomatis."
+  />
   <title>DAULAY STORE — Top Up Game & Voucher</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
@@ -15,8 +18,14 @@
 
   <header class="site-header">
     <a class="brand" href="#home" aria-label="DAULAY STORE Beranda">
-      <span class="brand-symbol">G</span>
-      <span class="brand-text"><b>DAULAY STORE</b><small>TOP UP TER MURAH</small></span>
+      <span class="brand-symbol">
+        <img src="/assets/dsa.png" alt="Logo DAULAY STORE" />
+      </span>
+
+      <span class="brand-text">
+        <b>DAULAY STORE</b>
+        <small>TOP UP TER MURAH</small>
+      </span>
     </a>
 
     <nav class="top-nav" aria-label="Navigasi utama">
@@ -34,13 +43,32 @@
   <main id="home" class="site-main">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> DIGITAL GAME PLATFORM</p>
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          DIGITAL GAME PLATFORM
+        </p>
+
         <h1>Top up game dengan <span>pengalaman premium.</span></h1>
-        <p class="hero-description">Pilih game, tentukan nominal, isi data akun, dan buat pesanan. Semua transaksi memperoleh invoice untuk dipantau secara realtime.</p>
+
+        <p class="hero-description">
+          Pilih game, tentukan nominal, isi data akun, dan buat pesanan.
+          Semua transaksi memperoleh invoice untuk dipantau secara realtime.
+        </p>
+
         <div class="hero-actions">
-          <a class="button button-primary" href="#topup">Mulai Top Up <span>→</span></a>
-          <button type="button" class="button button-secondary" data-open-track>Lacak Invoice</button>
+          <a class="button button-primary" href="#topup">
+            Mulai Top Up <span>→</span>
+          </a>
+
+          <button
+            type="button"
+            class="button button-secondary"
+            data-open-track
+          >
+            Lacak Invoice
+          </button>
         </div>
+
         <div class="hero-points">
           <span>✦ Harga transparan</span>
           <span>◈ Invoice otomatis</span>
@@ -52,15 +80,26 @@
         <div class="orbit orbit-one"></div>
         <div class="orbit orbit-two"></div>
         <div class="orbit orbit-three"></div>
-  <div class="core-card">
-  <img
-    class="store-logo"
-    src="/assets/dsa.png"
-    alt="Logo DAULAY STORE"
-  />
-</div>
-        <div class="signal-card signal-top"><small>NETWORK</small><b>ONLINE</b><i></i></div>
-        <div class="signal-card signal-bottom"><small>ORDER</small><b>REALTIME</b><i></i></div>
+
+        <div class="core-card">
+          <img
+            class="store-logo"
+            src="/assets/dsa.png"
+            alt="Logo DAULAY STORE"
+          />
+        </div>
+
+        <div class="signal-card signal-top">
+          <small>NETWORK</small>
+          <b>ONLINE</b>
+          <i></i>
+        </div>
+
+        <div class="signal-card signal-bottom">
+          <small>ORDER</small>
+          <b>REALTIME</b>
+          <i></i>
+        </div>
       </div>
     </section>
 
@@ -72,120 +111,347 @@
             <h2>Top up sekarang</h2>
             <p>Isi data secara berurutan untuk membuat transaksi baru.</p>
           </div>
+
           <span class="secure-chip">⌁ SECURE ORDER</span>
         </div>
 
         <form id="checkout-form" novalidate>
           <section class="form-step">
             <div class="step-number">01</div>
+
             <div class="step-content">
-              <div class="step-title"><h3>Pilih game</h3><p>Ketik nama game atau pilih dari daftar.</p></div>
+              <div class="step-title">
+                <h3>Pilih game</h3>
+                <p>Ketik nama game atau pilih dari daftar.</p>
+              </div>
+
               <label class="field-label" for="game-input">Game tujuan</label>
+
               <div class="game-picker" id="game-picker">
                 <span class="picker-icon">⌕</span>
-                <input id="game-input" type="text" placeholder="Ketik Point Blank, Mobile Legends..." autocomplete="off" />
-                <button id="game-picker-toggle" type="button" aria-label="Buka pilihan game">⌄</button>
-                <div id="game-dropdown" class="game-dropdown is-hidden"></div>
+
+                <input
+                  id="game-input"
+                  type="text"
+                  placeholder="Ketik Point Blank, Mobile Legends..."
+                  autocomplete="off"
+                />
+
+                <button
+                  id="game-picker-toggle"
+                  type="button"
+                  aria-label="Buka pilihan game"
+                >
+                  ⌄
+                </button>
+
+                <div
+                  id="game-dropdown"
+                  class="game-dropdown is-hidden"
+                ></div>
               </div>
+
               <p id="game-picker-message" class="field-message"></p>
             </div>
           </section>
 
           <section class="form-step" id="product-step">
             <div class="step-number">02</div>
+
             <div class="step-content">
-              <div class="step-title"><h3>Pilih nominal</h3><p>Pilih produk setelah game dipilih.</p></div>
-              <div id="product-options" class="product-options">
-                <div class="empty-selection">Pilih game terlebih dahulu untuk melihat nominal.</div>
+              <div class="step-title">
+                <h3>Pilih nominal</h3>
+                <p>Pilih produk setelah game dipilih.</p>
               </div>
+
+              <div id="product-options" class="product-options">
+                <div class="empty-selection">
+                  Pilih game terlebih dahulu untuk melihat nominal.
+                </div>
+              </div>
+
               <p id="product-message" class="field-message"></p>
             </div>
           </section>
 
           <section class="form-step" id="account-step">
             <div class="step-number">03</div>
+
             <div class="step-content">
-              <div class="step-title"><h3>Data akun game</h3><p>Pastikan User ID dan server sudah benar.</p></div>
+              <div class="step-title">
+                <h3>Data akun game</h3>
+                <p>Pastikan User ID dan server sudah benar.</p>
+              </div>
+
               <div id="dynamic-account-fields" class="form-grid"></div>
             </div>
           </section>
 
           <section class="form-step">
             <div class="step-number">04</div>
+
             <div class="step-content">
-              <div class="step-title"><h3>Data pembeli</h3><p>Digunakan untuk invoice dan konfirmasi pesanan.</p></div>
-              <div class="form-grid form-grid-two">
-                <label class="form-field">Nama pelanggan<input id="customer-name" type="text" maxlength="100" placeholder="Nama Anda" required /></label>
-                <label class="form-field">Nomor WhatsApp<input id="customer-phone" type="tel" inputmode="numeric" maxlength="16" placeholder="08xxxxxxxxxx" required /></label>
-                <label class="form-field">Email <em>opsional</em><input id="customer-email" type="email" maxlength="150" placeholder="email@contoh.com" /></label>
-                <label class="form-field">Metode pembayaran<select id="payment-method"><option value="manual_transfer">Transfer / QRIS Manual</option></select></label>
+              <div class="step-title">
+                <h3>Data pembeli</h3>
+                <p>Digunakan untuk invoice dan konfirmasi pesanan.</p>
               </div>
-              <label class="form-field">Catatan untuk admin <em>opsional</em><textarea id="customer-note" rows="3" maxlength="1000" placeholder="Contoh: pastikan data akun sudah benar"></textarea></label>
+
+              <div class="form-grid form-grid-two">
+                <label class="form-field">
+                  Nama pelanggan
+                  <input
+                    id="customer-name"
+                    type="text"
+                    maxlength="100"
+                    placeholder="Nama Anda"
+                    required
+                  />
+                </label>
+
+                <label class="form-field">
+                  Nomor WhatsApp
+                  <input
+                    id="customer-phone"
+                    type="tel"
+                    inputmode="numeric"
+                    maxlength="16"
+                    placeholder="08xxxxxxxxxx"
+                    required
+                  />
+                </label>
+
+                <label class="form-field">
+                  Email <em>opsional</em>
+                  <input
+                    id="customer-email"
+                    type="email"
+                    maxlength="150"
+                    placeholder="email@contoh.com"
+                  />
+                </label>
+
+                <label class="form-field">
+                  Metode pembayaran
+                  <select id="payment-method">
+                    <option value="manual_transfer">
+                      Transfer / QRIS Manual
+                    </option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="form-field">
+                Catatan untuk admin <em>opsional</em>
+                <textarea
+                  id="customer-note"
+                  rows="3"
+                  maxlength="1000"
+                  placeholder="Contoh: pastikan data akun sudah benar"
+                ></textarea>
+              </label>
             </div>
           </section>
 
           <p id="checkout-message" class="form-message" role="status"></p>
-          <button id="create-order-button" type="submit" class="button button-primary button-submit">Buat Pesanan <span>→</span></button>
+
+          <button
+            id="create-order-button"
+            type="submit"
+            class="button button-primary button-submit"
+          >
+            Buat Pesanan <span>→</span>
+          </button>
         </form>
       </div>
 
       <aside class="summary-card">
         <div class="summary-glow"></div>
-        <div class="summary-heading"><p class="eyebrow">RINGKASAN</p><h2>Pesanan Anda</h2></div>
-        <div class="summary-game"><span class="summary-game-icon" id="summary-game-icon">G</span><div><small>GAME TERPILIH</small><strong id="summary-game-name">Belum dipilih</strong></div></div>
-        <div class="summary-line"><span>Produk</span><b id="summary-product-name">-</b></div>
-        <div class="summary-line"><span>Nominal</span><b id="summary-product-price">Rp0</b></div>
+
+        <div class="summary-heading">
+          <p class="eyebrow">RINGKASAN</p>
+          <h2>Pesanan Anda</h2>
+        </div>
+
+        <div class="summary-game">
+          <span class="summary-game-icon" id="summary-game-icon">G</span>
+
+          <div>
+            <small>GAME TERPILIH</small>
+            <strong id="summary-game-name">Belum dipilih</strong>
+          </div>
+        </div>
+
+        <div class="summary-line">
+          <span>Produk</span>
+          <b id="summary-product-name">-</b>
+        </div>
+
+        <div class="summary-line">
+          <span>Nominal</span>
+          <b id="summary-product-price">Rp0</b>
+        </div>
+
         <div class="summary-divider"></div>
-        <div class="summary-total"><span>Total pembayaran</span><strong id="checkout-total">Rp0</strong></div>
-        <div class="summary-trust"><span>PASTIKAN DATA YANG ANDA MASUKAN SUDAH BENAR !</span></div>
+
+        <div class="summary-total">
+          <span>Total pembayaran</span>
+          <strong id="checkout-total">Rp0</strong>
+        </div>
+
+        <div class="summary-trust">
+          <span>PASTIKAN DATA YANG ANDA MASUKAN SUDAH BENAR!</span>
+        </div>
       </aside>
     </section>
 
     <section class="benefit-section">
-      <article><span class="benefit-icon">◈</span><h3>Invoice otomatis</h3><p>Setiap order memiliki kode unik untuk cek status kapan saja.</p></article>
-      <article><span class="benefit-icon">⌁</span><h3>Data terlindungi</h3><p>Data order diproses melalui sistem backend dan tercatat aman.</p></article>
-      <article><span class="benefit-icon">⚡</span><h3>Proses terpantau</h3><p>Admin dapat memverifikasi, memproses, dan memperbarui order realtime.</p></article>
+      <article>
+        <span class="benefit-icon">◈</span>
+        <h3>Invoice otomatis</h3>
+        <p>Setiap order memiliki kode unik untuk cek status kapan saja.</p>
+      </article>
+
+      <article>
+        <span class="benefit-icon">⌁</span>
+        <h3>Data terlindungi</h3>
+        <p>Data order diproses melalui sistem backend dan tercatat aman.</p>
+      </article>
+
+      <article>
+        <span class="benefit-icon">⚡</span>
+        <h3>Proses terpantau</h3>
+        <p>Admin dapat memverifikasi, memproses, dan memperbarui order realtime.</p>
+      </article>
     </section>
 
     <section id="help" class="help-section">
-      <div><p class="eyebrow">BUTUH BANTUAN?</p><h2>Lacak pesanan dengan invoice.</h2><p>Gunakan nomor invoice serta WhatsApp yang dipakai saat checkout untuk melihat progres transaksi.</p></div>
-      <button type="button" class="button button-secondary" data-open-track>Cek Status Pesanan</button>
+      <div>
+        <p class="eyebrow">BUTUH BANTUAN?</p>
+        <h2>Lacak pesanan dengan invoice.</h2>
+        <p>
+          Gunakan nomor invoice serta WhatsApp yang dipakai saat checkout untuk
+          melihat progres transaksi.
+        </p>
+      </div>
+
+      <button type="button" class="button button-secondary" data-open-track>
+        Cek Status Pesanan
+      </button>
     </section>
   </main>
 
   <footer class="site-footer">
-    <a class="brand" href="#home"><span class="brand-symbol">G</span><span class="brand-text"><b>DAULAY STORE</b><small>TOP UP TER MURAH</small></span></a>
+    <a class="brand" href="#home">
+      <span class="brand-symbol">
+        <img src="/assets/dsa.png" alt="Logo DAULAY STORE" />
+      </span>
+
+      <span class="brand-text">
+        <b>DAULAY STORE</b>
+        <small>TOP UP TER MURAH</small>
+      </span>
+    </a>
+
     <p>© <span id="year"></span> DAULAY STORE. All systems operational.</p>
   </footer>
 
-  <div id="track-modal" class="modal is-hidden" role="dialog" aria-modal="true" aria-label="Lacak pesanan">
+  <div
+    id="track-modal"
+    class="modal is-hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Lacak pesanan"
+  >
     <div class="modal-backdrop" data-close-track></div>
+
     <section class="track-panel">
-      <button class="modal-close" type="button" data-close-track aria-label="Tutup">×</button>
+      <button
+        class="modal-close"
+        type="button"
+        data-close-track
+        aria-label="Tutup"
+      >
+        ×
+      </button>
+
       <p class="eyebrow">LACAK TRANSAKSI</p>
       <h2>Cek status pesanan</h2>
+
       <p>Masukkan invoice dan nomor WhatsApp yang digunakan saat checkout.</p>
+
       <form id="track-form" class="track-form">
-        <label class="form-field">Nomor invoice<input id="order-code" name="orderCode" type="text" placeholder="GMS-20260913-XXXXXX" required /></label>
-        <label class="form-field">Nomor WhatsApp<input id="track-phone" name="phone" type="tel" inputmode="numeric" placeholder="08xxxxxxxxxx" required /></label>
-        <button type="submit" class="button button-primary button-submit">Cek Pesanan <span>→</span></button>
+        <label class="form-field">
+          Nomor invoice
+          <input
+            id="order-code"
+            name="orderCode"
+            type="text"
+            placeholder="GMS-20260913-XXXXXX"
+            required
+          />
+        </label>
+
+        <label class="form-field">
+          Nomor WhatsApp
+          <input
+            id="track-phone"
+            name="phone"
+            type="tel"
+            inputmode="numeric"
+            placeholder="08xxxxxxxxxx"
+            required
+          />
+        </label>
+
+        <button type="submit" class="button button-primary button-submit">
+          Cek Pesanan <span>→</span>
+        </button>
       </form>
+
       <p id="track-message" class="form-message" role="status"></p>
       <div id="track-result" class="track-result is-hidden"></div>
     </section>
   </div>
 
-  <div id="success-modal" class="modal is-hidden" role="dialog" aria-modal="true" aria-label="Order berhasil">
+  <div
+    id="success-modal"
+    class="modal is-hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Order berhasil"
+  >
     <div class="modal-backdrop" data-close-success></div>
+
     <section class="success-panel">
       <div class="success-symbol">✓</div>
+
       <p class="eyebrow">ORDER BERHASIL DIBUAT</p>
       <h2>Simpan invoice Anda</h2>
+
       <p id="success-product-text"></p>
-      <div class="invoice-box"><span>NOMOR INVOICE</span><strong id="success-order-code">-</strong></div>
-      <div class="success-total"><span>Total pembayaran</span><strong id="success-total-amount">Rp0</strong></div>
-      <p class="success-note">Gunakan nomor invoice dan WhatsApp Anda pada menu Pesanan untuk memantau status transaksi.</p>
-      <button id="close-success-button" type="button" class="button button-primary button-submit">Selesai</button>
+
+      <div class="invoice-box">
+        <span>NOMOR INVOICE</span>
+        <strong id="success-order-code">-</strong>
+      </div>
+
+      <div class="success-total">
+        <span>Total pembayaran</span>
+        <strong id="success-total-amount">Rp0</strong>
+      </div>
+
+      <p class="success-note">
+        Gunakan nomor invoice dan WhatsApp Anda pada menu Pesanan untuk
+        memantau status transaksi.
+      </p>
+
+      <button
+        id="close-success-button"
+        type="button"
+        class="button button-primary button-submit"
+      >
+        Selesai
+      </button>
     </section>
   </div>
 
