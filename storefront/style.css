@@ -327,3 +327,18 @@ a { color: inherit; text-decoration: none; }
     gap: 5px;
   }
 }
+
+
+/* Logo custom pada visual hero tengah */
+.core-card {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.core-card img {
+  display: block;
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+}
