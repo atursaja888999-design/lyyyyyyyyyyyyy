@@ -110,13 +110,91 @@ a { color: inherit; text-decoration: none; }
 .game-picker input { width: 100%; min-width: 0; color: var(--text); border: 0; outline: 0; background: transparent; }
 .game-picker input::placeholder { color: #7684ae; }
 .game-picker button { width: 46px; height: 47px; color: var(--muted); border: 0; border-left: 1px solid var(--border); background: transparent; font-size: 1.15rem; }
-.game-dropdown { position: absolute; z-index: 20; top: calc(100% + 7px); right: 0; left: 0; max-height: 245px; overflow-y: auto; padding: 7px; border: 1px solid rgba(165, 181, 255, 0.26); background: #101633; border-radius: 12px; box-shadow: 0 20px 42px rgba(0,0,0,0.42); }
-.game-option { display: flex; width: 100%; align-items: center; gap: 11px; padding: 11px; color: var(--text); border: 0; background: transparent; border-radius: 9px; text-align: left; }
-.game-option:hover, .game-option.is-selected { background: rgba(94, 243, 215, 0.1); }
-.game-option-icon, .summary-game-icon { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; color: #07120f; background: linear-gradient(135deg, var(--cyan), #9ec2ff); border-radius: 10px; font-family: "DM Mono", monospace; font-size: 0.69rem; font-weight: 800; }
-.game-option-copy { display: grid; gap: 2px; }
-.game-option-copy b { font-size: 0.83rem; }
-.game-option-copy small { color: var(--muted); font-size: 0.68rem; }
+.game-dropdown {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 10px);
+  right: 0;
+  left: 0;
+  max-height: 340px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid rgba(165, 181, 255, 0.30);
+  background: #101633;
+  border-radius: 14px;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.48);
+}
+
+.game-option {
+  display: flex;
+  width: 100%;
+  min-height: 64px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  color: var(--text);
+  border: 0;
+  background: transparent;
+  border-radius: 11px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.game-option + .game-option {
+  margin-top: 7px;
+}
+
+.game-option:hover,
+.game-option:focus-visible,
+.game-option.is-selected {
+  background: rgba(94, 243, 215, 0.12);
+  outline: none;
+}
+
+.game-option-icon,
+.summary-game-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  color: #07120f;
+  background: linear-gradient(135deg, var(--cyan), #9ec2ff);
+  border-radius: 11px;
+  font-family: "DM Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.game-option-copy {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.game-option-copy {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.game-option-copy b {
+  overflow: hidden;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.game-option-copy small {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.73rem;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .field-message { min-height: 17px; margin: 7px 0 0; color: var(--danger); font-size: 0.74rem; }
 .product-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .empty-selection { grid-column: 1 / -1; padding: 17px; color: var(--muted); border: 1px dashed var(--border); background: rgba(255,255,255,0.02); border-radius: 11px; font-size: 0.78rem; text-align: center; }
@@ -224,4 +302,22 @@ a { color: inherit; text-decoration: none; }
   .site-footer p { margin-top: 16px; }
   .modal { align-items: end; padding: 0; }
   .track-panel, .success-panel { width: 100%; max-height: 88vh; overflow-y: auto; padding: 25px 18px calc(25px + env(safe-area-inset-bottom)); border-right: 0; border-bottom: 0; border-left: 0; border-radius: 21px 21px 0 0; }
+    .game-dropdown {
+    max-height: 285px;
+    padding: 8px;
+  }
+
+  .game-option {
+    min-height: 68px;
+    gap: 13px;
+    padding: 13px;
+  }
+
+  .game-option + .game-option {
+    margin-top: 8px;
+  }
+
+  .game-option-copy {
+    gap: 5px;
+  }
 }
